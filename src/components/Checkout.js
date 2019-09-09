@@ -3,7 +3,7 @@ import styles from './Checkout.module.css'
 import { totalPrice } from '../utils/totalPrice'
 
 const Checkout = props => {
-    const { basket } = props;
+    const { basket, removeItem} = props;
     return ( 
         <div className={styles.main}>
             <p className={styles.checkout}>Checkout</p>
@@ -16,6 +16,7 @@ const Checkout = props => {
                             <img src={item.img_url} className={styles.image}/>
                             <h5>{item.type}</h5>
                             <h5>Item price: {item.price}£</h5>
+                            <button onClick={() => removeItem(item.id)}>remove item</button>
                         </div>
                     )
                 })

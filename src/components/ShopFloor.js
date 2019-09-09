@@ -31,13 +31,21 @@ const ShopFloor = () => {
     const showBasket = () => {
       console.log(basket)
     }
+
+    const removeItemFromBasket = id => {
+      let newBasket = [...basket];
+      const filteredBasket = newBasket.filter(item => {
+        return item.id !== id;
+      })
+      setBasket(filteredBasket)
+    }
     
     return (
         <>
         <div>
           <Popup trigger={<button className={styles.myButton}>Checkout</button>} modal>
             {close => (
-              <Checkout basket={basket}/>
+              <Checkout basket={basket} removeItem={removeItemFromBasket} check={showBasket}/>
               )}
           </Popup>
           <Basket howMany={basket.length}/>
