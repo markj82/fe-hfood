@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './Checkout.module.css'
+import { totalPrice } from '../utils/totalPrice'
 
 const Checkout = props => {
     const { basket } = props;
@@ -14,9 +15,15 @@ const Checkout = props => {
                             <h3>{item.name}</h3>
                             <img src={item.img_url} className={styles.image}/>
                             <h5>{item.type}</h5>
+                            <h5>Item price: {item.price}£</h5>
                         </div>
                     )
                 })
+                
+            }
+            {
+                basket.length === 0 ? <div></div> :
+                <div>Total to pay: {totalPrice(basket)} <button>Buy</button></div>
             }
         </div>
      );
