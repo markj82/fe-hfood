@@ -14,6 +14,8 @@ const AdminPanel = () => {
     const [type, setType] = useState('');
     const [img_url, setImg_url] = useState('');
     const [qty, setQty] = useState(0);
+    const [desc, setDesc] = useState('');
+    const [price, setPrice] = useState(0);
 
     const [allFood, setAllFood] = useState(null);
 
@@ -27,7 +29,7 @@ const AdminPanel = () => {
     const handleSubmit = e => {
         e.preventDefault()
         console.log("item added")
-        sendItemsToDB({ name, type, img_url, qty })
+        sendItemsToDB({ name, type, qty, desc, price, img_url })
     }
 
     const handleInputChange = e => {
@@ -44,6 +46,12 @@ const AdminPanel = () => {
         }
         if (name === "qty") {
             setQty(value)
+        }
+        if (name === "desc") {
+            setDesc(value)
+        }
+        if (name === "price") {
+            setPrice(value)
         }
     }
 
@@ -63,6 +71,12 @@ const AdminPanel = () => {
                         <option value="oil">Oil</option>
                     </select>
                 </label>
+                <label>Description:
+                    <input type="text" name="desc" onChange={handleInputChange}/>
+                </label>
+                <label>Price:
+                    <input type="number" name="price" onChange={handleInputChange}/>
+                </label>
                 <label>Image url:
                     <input type="text" name="img_url" onChange={handleInputChange}/>
                 </label>
@@ -71,12 +85,15 @@ const AdminPanel = () => {
                 </label>
                 <button>Add</button>
             </form>
+
             <table className={styles.table}>
                 <thead>
                 <tr>
                     <th>id</th>
                     <th>name</th>
                     <th>type</th>
+                    <th>description</th>
+                    <th>price</th>
                     <th>image</th>
                     <th>qty</th>
                     <th>edit</th>
@@ -92,6 +109,8 @@ const AdminPanel = () => {
                             <td>{oneFood.id}</td>
                             <td>{oneFood.name}</td>
                             <td>{oneFood.type}</td>
+                            <td>{oneFood.desc}</td>
+                            <td>{oneFood.price}</td>
                             <td><img src={oneFood.img_url} className={styles.img}/></td>
                             <td>{oneFood.qty}</td>
                             <td><FontAwesomeIcon icon={faEdit} /></td>
