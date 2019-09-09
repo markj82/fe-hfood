@@ -54,8 +54,10 @@ const ShopFloor = () => {
                 <div className={styles.item} key={oneFood.id}>
                   <p className={styles.name}>{oneFood.name}</p>
                   <img src={oneFood.img_url} className={styles.image}/>
+                  <p>{oneFood.desc}</p>
                   <p className={styles.category}>Category: {oneFood.type}</p>
                   <p className={styles.qty}>Available quantity: {oneFood.qty}</p>
+                  <p>Price: {oneFood.price}£</p>
                   <button className={styles.basketButton} onClick={()=> addToBasket(oneFood)}>Add to basket <FontAwesomeIcon icon={faShoppingBasket} /></button>
                 </div>
               )
