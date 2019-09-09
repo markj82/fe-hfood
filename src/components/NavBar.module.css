@@ -1,0 +1,21 @@
+.main {
+    padding: 4px;
+    height: 1.5em;
+    background: rgb(246, 247, 236);
+    font-size: 1.5em;
+    font-weight: 200;
+    text-transform: uppercase;
+}
+
+.home {
+    color: rgb(77, 77, 22);
+    text-decoration: none;
+    padding-left: 2em;
+}
+
+.admin {
+    color: rgb(77, 77, 22);
+    text-decoration: none;
+    float: right;
+    padding-right: 2em;
+}

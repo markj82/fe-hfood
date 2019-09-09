@@ -1,0 +1,11 @@
+.main {
+    width: 100vw;
+    height: 7vh;
+}
+
+.basket {
+    float: right;
+    padding-right: 4em;
+    text-transform: uppercase;
+    font-weight: 300;
+}
